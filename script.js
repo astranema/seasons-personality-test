@@ -1,3 +1,4 @@
+// reallllyyy bruteforce way of doing this, once django is integrated we should probably feed it to the frontend from the server
 const jsonString = `[
     {
         "text": "I enjoy socializing",
@@ -202,3 +203,35 @@ const jsonString = `[
 ]`;
 const questions = JSON.parse(jsonString);
 
+const button_container = document.getElementById("button-container");
+const start_button = document.getElementById("begin-button");
+const question_text = document.getElementById("question-text");
+let question_number = 8;
+
+start_button.addEventListener('click', () => {
+    start_button.remove();
+    const yes_button = document.createElement('button');
+    yes_button.className = 'answer-button';
+    yes_button.textContent = 'Agree';
+    yes_button.style.fontWeight = 'bold';
+    yes_button.addEventListener('click', () => {
+        next_question();
+    });
+    const no_button = document.createElement('button');
+    no_button.className = 'answer-button';
+    no_button.textContent = 'Disagree';
+    no_button.style.fontWeight = 'bold';
+    no_button.addEventListener('click', () => {
+        next_question();
+    });
+    button_container.appendChild(yes_button);
+    button_container.appendChild(no_button);
+    next_question();
+});
+
+function next_question() {
+    question_text.textContent = questions[question_number].text;
+    // sets the question number to a new question in the list. assumes 40 questions.
+    question_number += 22;
+    question_number = question_number % 40;
+}
