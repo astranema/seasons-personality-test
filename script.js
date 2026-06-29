@@ -203,10 +203,13 @@ const jsonString = `[
 ]`;
 const questions = JSON.parse(jsonString);
 
+// spring, summer, autumn, winter
+const scores = [0, 0, 0, 0];
 const button_container = document.getElementById("button-container");
 const start_button = document.getElementById("begin-button");
 const question_text = document.getElementById("question-text");
 let question_number = 8;
+let questions_answered = 0;
 
 start_button.addEventListener('click', () => {
     start_button.remove();
@@ -215,6 +218,8 @@ start_button.addEventListener('click', () => {
     yes_button.textContent = 'Agree';
     yes_button.style.fontWeight = 'bold';
     yes_button.addEventListener('click', () => {
+        questions_answered += 1;
+        modify_score(true, scores);
         next_question();
     });
     const no_button = document.createElement('button');
@@ -222,6 +227,8 @@ start_button.addEventListener('click', () => {
     no_button.textContent = 'Disagree';
     no_button.style.fontWeight = 'bold';
     no_button.addEventListener('click', () => {
+        questions_answered += 1;
+        modify_score(false, scores);
         next_question();
     });
     button_container.appendChild(yes_button);
@@ -230,8 +237,36 @@ start_button.addEventListener('click', () => {
 });
 
 function next_question() {
-    question_text.textContent = questions[question_number].text;
     // sets the question number to a new question in the list. assumes 40 questions.
-    question_number += 22;
+    question_number += 23;
     question_number = question_number % 40;
+    question_text.textContent = questions[question_number].text;
+    if (questions_answered >= 40) {
+        alert(scores[0]);
+        alert(scores[1]);
+        alert(scores[2]);
+        alert(scores[3]);
+    }
+}
+
+// answer_was_yes is a boolean (yes when Agree, no when Disagree), scores is an array of 4 ints
+function modify_score(answer_was_yes, scores) {
+    if ((answer_was_yes && !questions[question_number].negative) || (!answer_was_yes && questions[question_number].negative)) {
+        switch (questions[question_number].aspect) {
+            case "spring":
+                scores[0] += 1;
+                break;
+            case "summer":
+                scores[1] += 1;
+                break;
+            case "autumn":
+                scores[2] += 1;
+                break;
+            case "winter":
+                scores[3] += 1;
+                break;
+            default:
+                alert("CRITICAL ERROR");
+        }
+    }
 }
