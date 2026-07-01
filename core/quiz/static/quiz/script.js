@@ -223,15 +223,7 @@ function createYesButton(qm, button_container, question_text) {
     yes_button.textContent = 'Agree';
     yes_button.style.fontWeight = 'bold';
     yes_button.addEventListener('click', () => {
-        qm.modify_score(true);
-        qm.next_question();
-        question_text.textContent = qm.get_current_question().text;
-        if (qm.questions_answered >= 40) {
-            alert(qm.scores[0]);
-            alert(qm.scores[1]);
-            alert(qm.scores[2]);
-            alert(qm.scores[3]);
-        }
+        answer_question(true, qm, question_text);
     });
     button_container.appendChild(yes_button);
 }
@@ -242,17 +234,21 @@ function createNoButton(qm, button_container, question_text) {
     no_button.textContent = 'Disagree';
     no_button.style.fontWeight = 'bold';
     no_button.addEventListener('click', () => {
-        qm.modify_score(false);
-        qm.next_question();
-        question_text.textContent = qm.get_current_question().text;
-        if (qm.questions_answered >= 40) {
-            alert(qm.scores[0]);
-            alert(qm.scores[1]);
-            alert(qm.scores[2]);
-            alert(qm.scores[3]);
-        }
+        answer_question(false, qm, question_text);
     });
     button_container.appendChild(no_button);
+}
+
+function answer_question(isAgree, qm, question_text) {
+    qm.modify_score(isAgree);
+    qm.next_question();
+    question_text.textContent = qm.get_current_question().text;
+    if (qm.questions_answered >= 40) {
+        alert(qm.scores[0]);
+        alert(qm.scores[1]);
+        alert(qm.scores[2]);
+        alert(qm.scores[3]);
+    }
 }
 
 
