@@ -1,11 +1,11 @@
 /* class which manages the user's scores and question data. */
 export class Questions_manager {
-    constructor(jsonString) {
+    constructor(jsonObject) {
         // spring, summer, autumn, winter
         this.scores = [0, 0, 0, 0];
         this.question_number = 8;
         this.questions_answered = 0;
-        this.questions = JSON.parse(jsonString);
+        this.questions = jsonObject;
     }
     next_question() {
         this.questions_answered += 1;
