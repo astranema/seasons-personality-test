@@ -1,8 +1,9 @@
 import { Questions_manager } from "./questions_manager.js";
 
 async function main() {
-    // reallllyyy bruteforce way of doing this, once django is integrated we should probably feed it to the frontend from the server
+    // response from quiz app's ./json view
     const response = await fetch("http://localhost:8000/json");
+    // json containing question values. modifiable at <root>/core/quiz/questions.json
     const json = await response.json();
     const button_container = document.getElementById("button-container");
     const start_button = document.getElementById("begin-button");
@@ -17,6 +18,10 @@ async function main() {
     });
 }
 
+/* creates the button labelled "Agree". Code is almost identical to createNoButton but its
+not worth making a helper function
+qm is a Questions_maanger, button_container is where the button will be placed, and
+question_text is the text that changes when the button is pushed*/
 function createYesButton(qm, button_container, question_text) {
     const yes_button = document.createElement('button');
     yes_button.className = 'answer-button';
@@ -39,6 +44,12 @@ function createNoButton(qm, button_container, question_text) {
     button_container.appendChild(no_button);
 }
 
+/* isAgree is a boolean representing if the user pressed 'Agree' (the Disagree button will
+call this function with the value false. qm is the Questions_manager, question_text is the text
+that is modified by this function)
+This function modifies the scores in accordance with the current question and which button was
+pressed, cycle to the next question, alert() if the test is over. in the future this will be
+replaced with a redirect. */
 function answer_question(isAgree, qm, question_text) {
     qm.modify_score(isAgree);
     qm.next_question();
