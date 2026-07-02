@@ -2,6 +2,7 @@ import { Questions_manager } from "./questions_manager.js";
 
 async function main() {
     // response from quiz app's ./json view
+    // TODO: Make this address dynamic, add error handling (seperate function)
     const response = await fetch("http://localhost:8000/json");
     // json containing question values. modifiable at <root>/core/quiz/questions.json
     const json = await response.json();
