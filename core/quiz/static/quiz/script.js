@@ -2,8 +2,8 @@ import { Questions_manager } from "./questions_manager.js";
 
 async function main() {
     // response from quiz app's ./json view
-    // TODO: Make this address dynamic, add error handling (seperate function)
-    const response = await fetch("http://localhost:8000/json");
+    // TODO: Make this address dynamic
+    const response = await getUrlData("http://localhost:8000/json");
     // json containing question values. modifiable at <root>/core/quiz/questions.json
     const json = await response.json();
     const button_container = document.getElementById("button-container");
@@ -60,6 +60,19 @@ function answer_question(isAgree, qm, question_text) {
         alert(qm.scores[1]);
         alert(qm.scores[2]);
         alert(qm.scores[3]);
+    }
+}
+
+async function getUrlData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        return response;
+    }
+    catch (error) {
+        alert(error.message);
     }
 }
 
