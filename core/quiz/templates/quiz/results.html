@@ -1,15 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pee</title>
+    <title>Quiz Results</title>
     <link rel="stylesheet" href="{% static 'quiz/style.css' %}">
 <head>
 <body>
-    <h1>Results</h1>
-    <p>Spring: </p>
-    <p>Summer: </p>
-    <p>Fall: </p>
-    <p>Winter: </p>
+    <h1>Results: {{ type }}</h1>
+    <p>Spring: {{ spring_value }}</p>
+    <p>Summer: {{ summer_value }}</p>
+    <p>Autumn: {{ autumn_value }}</p>
+    <p>Winter: {{ winter_value }}</p>
 </body>
 </html>

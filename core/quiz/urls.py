@@ -4,5 +4,6 @@ from django.urls import path
 
 urlpatterns = [
     path("", views.test),
-    path("json", views.questionsJson)
+    path("json", views.questionsJson),
+    path("results", views.results),
 ]
