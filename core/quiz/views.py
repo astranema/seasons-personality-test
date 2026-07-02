@@ -18,9 +18,9 @@ def questionsJson(request):
 
 def results(request):
     template = loader.get_template("quiz/results.html")
-    context = {"type": "S--W",
-        "spring_value": 6,
-        "summer_value": 8,
-        "winter_value": 2,
-        "autumn_value": 4}
+    context = {"type": "TBA",
+        "spring_value": request.GET.get("p"),
+        "summer_value": request.GET.get("s"),
+        "winter_value": request.GET.get("w"),
+        "autumn_value": request.GET.get("a")}
     return HttpResponse(template.render(context, request))

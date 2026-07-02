@@ -49,17 +49,13 @@ function createNoButton(qm, button_container, question_text) {
 call this function with the value false. qm is the Questions_manager, question_text is the text
 that is modified by this function)
 This function modifies the scores in accordance with the current question and which button was
-pressed, cycle to the next question, alert() if the test is over. in the future this will be
-replaced with a redirect. */
+pressed, cycle to the next question, and redirect to the results page. */
 function answer_question(isAgree, qm, question_text) {
     qm.modify_score(isAgree);
     qm.next_question();
     question_text.textContent = qm.get_current_question().text;
     if (qm.questions_answered >= 40) {
-        alert(qm.scores[0]);
-        alert(qm.scores[1]);
-        alert(qm.scores[2]);
-        alert(qm.scores[3]);
+        window.location.href = `http://localhost:8000/results?p=${qm.get_spring()}&s=${qm.get_summer()}&a=${qm.get_autumn()}&w=${qm.get_winter()}`;
     }
 }
 
