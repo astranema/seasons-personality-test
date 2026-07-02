@@ -39,4 +39,16 @@ export class Questions_manager {
             }
         }
     }
+    get_spring() {
+        return this.scores[0];
+    }
+    get_summer() {
+        return this.scores[1];
+    }
+    get_autumn() {
+        return this.scores[2];
+    }
+    get_winter() {
+        return this.scores[3];
+    }
 }
