@@ -25,17 +25,17 @@
         "negative": false
     },
     {
-        "text": "I avoid social gatherings unless I have to attend",
+        "text": "I dislike large social gatherings",
         "aspect": "summer",
         "negative": true
     },
     {
-        "text": "It's hard for me to change my tone depending on my social group, even with effort",
+        "text": "It's hard for me to change my tone depending on my social group",
         "aspect": "summer",
         "negative": true
     },
     {
-        "text": "I sometimes avoid parties or other social occasions because I simply have other things to do",
+        "text": "I enjoy being in stimulating enviornments",
         "aspect": "summer",
         "negative": true
     },
@@ -55,7 +55,7 @@
         "negative": false
     },
     {
-        "text": "I am naturally sympathetic to other people's problems",
+        "text": "I am sympathetic to other people's problems",
         "aspect": "winter",
         "negative": false
     },
@@ -75,7 +75,7 @@
         "negative": false
     },
     {
-        "text": "It's difficult for me to calm down when I have a lot of energy",
+        "text": "I do not consider myself a particularly moral person",
         "aspect": "winter",
         "negative": true
     },
@@ -130,7 +130,7 @@
         "negative": true
     },
     {
-        "text": "I usually start things without outlining or planning them",
+        "text": "I ussually think about things in unconventional ways",
         "aspect": "spring",
         "negative": true
     },
@@ -145,7 +145,7 @@
         "negative": true
     },
     {
-        "text": "Sometimes, something is just instinctually right or wrong. Not everything needs a logical explanation",
+        "text": "I put my own desires and interests on the backburner",
         "aspect": "spring",
         "negative": true
     },
@@ -160,12 +160,12 @@
         "negative": false
     },
     {
-        "text": "I would be useful in an apocalypse",
+        "text": "I get my work done before relaxing",
         "aspect": "autumn",
         "negative": false
     },
     {
-        "text": "I can dive right into activities I have little experience with without needing to plan",
+        "text": "I'm an independant person",
         "aspect": "autumn",
         "negative": false
     },
